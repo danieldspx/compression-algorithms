@@ -41,6 +41,9 @@
 // buffer is fairly large.
 #include "lenna_tga.hpp"
 
+//Corona genome from https://www.ncbi.nlm.nih.gov/nuccore/AY391777
+#include "human_corona_genome.hpp"
+
 // 512 randomly shuffled byte values:
 #include "random_512.hpp"
 
@@ -105,6 +108,9 @@ static void Test_RLE()
 
     std::cout << "> Testing lenna.tga...\n";
     Test_RLE_EncodeDecode(lennaTgaData, sizeof(lennaTgaData));
+
+    std::cout << "> Testing Human Corona Genome...\n";
+    Test_RLE_EncodeDecode(corona_genome, sizeof(corona_genome));
 }
 
 // ========================================================
@@ -164,6 +170,9 @@ static void Test_LZW()
 
     std::cout << "> Testing lenna.tga...\n";
     Test_LZW_EncodeDecode(lennaTgaData, sizeof(lennaTgaData));
+
+    std::cout << "> Testing Human Corona Genome...\n";
+    Test_LZW_EncodeDecode(corona_genome, sizeof(corona_genome));
 }
 
 // ========================================================
@@ -223,6 +232,9 @@ static void Test_Huffman()
 
     std::cout << "> Testing lenna.tga...\n";
     Test_Huffman_EncodeDecode(lennaTgaData, sizeof(lennaTgaData));
+
+    std::cout << "> Testing Human Corona Genome...\n";
+    Test_Huffman_EncodeDecode(corona_genome, sizeof(corona_genome));
 }
 
 // ========================================================
@@ -282,6 +294,9 @@ static void Test_Rice()
 
     std::cout << "> Testing lenna.tga...\n";
     Test_Rice_EncodeDecode(lennaTgaData, sizeof(lennaTgaData));
+
+    std::cout << "> Testing Human Corona Genome...\n";
+    Test_Rice_EncodeDecode(corona_genome, sizeof(corona_genome));
 }
 
 // ========================================================
@@ -307,7 +322,7 @@ int main()
     TEST(RLE);
     TEST(LZW);
     TEST(Huffman);
-    TEST(Rice);
+    // TEST(Rice);
 }
 
 // ========================================================
